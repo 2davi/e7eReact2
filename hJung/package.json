@@ -1,0 +1,18 @@
+{
+  "name": "hjung",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "경덕 관심 e7e",
+    "sumin": "echo 수민 안 만세",
+    "yesol": "echo 얼굴 더 좋아짐",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
