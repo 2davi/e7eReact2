@@ -23,6 +23,9 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+      //필요없는 훈수는 off 시킴으로써 눈이 편해짐, ^0^
+      //그냥 마우스 올렸을 때 나오는 규칙명(rule)을 적어주고, off시키면 됨
+      //'no-unused-vars': "off",
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
       'react-refresh/only-export-components': [
         'warn',

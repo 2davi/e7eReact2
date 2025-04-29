@@ -130,3 +130,36 @@ npx => Node Package eXecutor
 - 항상 시작은 index.html이다.
 - 코드 어시스턴트를 LINT라고 부른다. ^0^
 - 사용자가 만든 컴포넌트에는 className을 줄 수 없다.
+
+요즘 React에서 css 대세는 크게 2가지
+  tailwindcss
+    - css계의 게임체인저로 불림!(프론트 프레임워크에서 쓰면 아주 편함)
+    - 우리는 tailwindcss를 쓸 것임!
+    - 왜? mui는 그냥 할 수 있음(그저 시간만 필요)
+    - tailwindcss는 직접 할 수 있고, 또 인터넷상에도 tailwindcss를 이용한 컴포넌트들이 아주 많이 있음(유료도 있음)
+    - flex, grid를 아랑두어야 훨씬 더 잼나게 쓸 수 있음
+    - flex, grid 안 읽은 사람은 이김에 읽어보자궁!^0^
+    `https://studiomeal.com/archives/197`
+  mui
+    - 구글의 matial ui 디자인이 돈이 될 것 같으니 아예 회사를 차려서 나옴(무료|유료 존재)
+    - 이것이 유명한 이유는 개발자는 실제 css를 거의 하지 않아도 됨
+    - 이미 컴포넌트들이 예쁘게 만들어져 있음!
+
+- 1.tailwindcss 설치 `npm i tailwindcss @tailwindcss/vite`
+- 2.vite.config.js에 tailwind 추가 `plugins: [react(), tailwindcss()],`
+- 3.css 파일에 `import 'tailwindcss';`
+- tailwindcss cheat sheet 로 검색해서, 시간날 때 앞단어만 대략 기억해 둠.
+  나머진 자동완성이 알아서 도와서 결국 잘 쓰게 해줄 것임
+
+- 훈수꾼 설정 파일이 제대로 동작하려면 역시 확장프로그램이 필요(eslint.config, ESLint)
+- 코딩 시에 훈수를 남발해줌. 나중에 추가 제어(커스터마이징이 살짝 필요)
+- 초기에 많이 부담되면 사용 안 함으로 두면 됨!
+- react-developer-tool은 지금은 별로일 것 같은데,
+  컴포넌트 tree구조가 복잡해지면 전체 구조를 파악하는 데
+  아주 유리함(당신이 새로운 프로그램을 유지보수해야한다면 이것으로
+  전체 구조를 빨리 파악할 수 있음)
+- Profiler는 성능 평가를 할 때 사용하게 되는데 지금은 무시
+
+- 나중에 리스트 뿌리는 걸로 3G로 하면, 다시 그려지는 게 눈에 보임
+  현재는 그저 변수 1개라 3G로 보아도 인간의 눈으로 확인이 불가 ㅠ^ㅜ
+  
