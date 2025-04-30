@@ -1,7 +1,7 @@
 import React from "react"
 import Idol from "./components/Idol.jsx"
 import Counter from "./components/Counter.jsx"
-
+import Counter2 from "./components/Counter2.jsx"
 // 현재 리스트 뿌리는 방법은 아주 저수준 ㅗ^ㅂ^ㅗ
 // 100명의 아이돌이 있으면 100번 복사/붙여넣기 해야 함
 // 있어보이기 위해 가짜 데이터 304호 아이돌들
@@ -46,6 +46,8 @@ function App() {
     <React.Fragment>
       <div>
         <h1>철민 리액트 시작</h1>
+        <Counter2 />
+
         <Counter />
         <Counter />
         <Counter />

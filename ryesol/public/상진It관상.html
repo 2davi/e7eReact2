@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script>
+  // 상진이 앞머리만 IT 개발자 스타일!, 나머진 아님!
+  // useState를 페이크 해 봅시다!
+  // 이해가 안 되도 됨!, 뉘앙스만...
+
+  const gState = []; // 전역상태변수를 담을 배열
+  let gIndex = 0;    // gState index 관리
+  
+  function useState(iniVal) {
+    if(!gState[gIndex]) {
+      gState[gIndex] = iniVal;
+    }
+    gIndex++;
+    //배열 return, 배열로 구조 분해 했기 때문에 당연!
+    return [
+      gState[gIndex],
+      newVal => gState[gIndex] = newVal
+    ]
+  }
+
+  const [kdName, setKdName] = useState("경덕");
+  console.log("kdName: ", kdName);
+  console.log("setKdName: ", setKdName);
+
+  //function useState(iniVal) {~} 선언부 체킁..
+  //gIndex 값이 0으로 고정되어있고, 0번에는 kdName상태변수가 들어가있음.
+  const [kdAge, setKdAge] = useState("100");
+  console.log("kdAge: :", kdAge);
+  console.log("setKdAge: :", setKdAge);
+</script>
