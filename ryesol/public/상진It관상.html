@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="http://www.mysite.com/favicon.ico">
+<!-- Hook::useState 뉘앙스만 느끼고 가도 Good! -->
 <script>
   // 상진이 앞머리만 IT 개발자 스타일!, 나머진 아님!
   // useState를 페이크 해 봅시다!
   // 이해가 안 되도 됨!, 뉘앙스만...
 
-  const gState = []; // 전역상태변수를 담을 배열
+  const gState = []; // 전역상태변수를 배열에 담아서 그걸 순서로 기억하고 있는 것임!
+  // 그래서 hook을 if문 또는 반복문 등지에 넣지 말라는 것임
+  // 순서가 바뀌면 오동작의 원인이 됨..! 요 뉘앙스만 머리에 담아둡시당.
+
   let gIndex = 0;    // gState index 관리
   
+  // 자바스크립트에서 말하는 closure(클로저)
+  // 옛날 사람들은 클로저 용어 없이 그냥 썼음
+  // 함수 내의 지역변수는 원래 쓰고 없어져야 하는데
+  // ***return에 포함시킨 지역변수는 사라지지 않고 계속 존재.
+
   function useState(iniVal) {
-    if(!gState[gIndex]) {
-      gState[gIndex] = iniVal;
-    }
+    let lIndex = gIndex;  // 전역변수가 아닌 지역변수를 이용
+    if(!gState[lIndex])
+      gState[lIndex] = iniVal;
     gIndex++;
     //배열 return, 배열로 구조 분해 했기 때문에 당연!
     return [
-      gState[gIndex],
-      newVal => gState[gIndex] = newVal
+      gState[lIndex],
+      newVal => gState[lIndex] = newVal
     ]
   }
 
@@ -29,4 +39,6 @@
   const [kdAge, setKdAge] = useState("100");
   console.log("kdAge: :", kdAge);
   console.log("setKdAge: :", setKdAge);
+
+  console.log("체킁: ", gIndex);
 </script>

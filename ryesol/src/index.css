@@ -4,6 +4,13 @@
 /* 정말 반복적으로 많이 쓴다면
    @apply 밑줄 생기는 건 vscode rule 체크에서 빼야 하는데, 일단 두는 걸로!
 */
+button {
+  @apply border-2 border-slate-700 rounded-2xl
+}
+input[type=text] {
+  @apply border-2 border-pink-700 rounded-2xl
+}
+
 .sangjin {
   @apply text-5xl text-center text-pink-800 border-2 border-slate-600 w-[600px] h-50;
 }

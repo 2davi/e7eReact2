@@ -183,3 +183,19 @@ npx => Node Package eXecutor
 - public 폴더는 home 디렉토리로 동작
   html로 무언가 간단하게 확인하고픈 것이 있다면 만들어서 테스트
   배포할 땐 필요없으면 정리
+
+- JS Closure
+
+- Heap & Stack의 차이
+  Stack: 임시로 쓰고 버릴 곳
+  Heap: 프로그램이 종료될 때까지 간직할 곳
+
+- `useRef()`
+
+- useState / useRef 기본 Hook이니 꼭 잘 써야 하고,
+  벌써 몇 번째 배열의 메소드 map/filter/sort 심장에 느낌이 와 있어야 함
+
+- re-rendering 느낌이 오면 react 이미 70점 이상!
+  오늘까지 한 거에 비동기 개념은 하나도 적용 안 되어 있음
+  내일 비동기를 위해 태어난 useEffect Hook을 할 것임!
+  
