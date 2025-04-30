@@ -74,9 +74,9 @@ function App() {
 
         { 
         
-        myIdols
-        .sort((a,b) => { if(a.name>b.name) return 1; return -1;})
-        .map(({id, name, age, song}) => (
+        myIdols.sort(
+          (a,b) => { if(a.name>b.name) return 1; return -1;}
+        ).map(({id, name, age, song}) => (
           <Idol key={id} name={name} age={age} song={song} />
         ))
         }
