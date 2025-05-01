@@ -147,7 +147,7 @@ npx => Node Package eXecutor
 
 - 1.tailwindcss 설치 `npm i tailwindcss @tailwindcss/vite`
 - 2.vite.config.js에 tailwind 추가 `plugins: [react(), tailwindcss()],`
-- 3.css 파일에 `import 'tailwindcss';`
+- 3.css 파일에 `@import 'tailwindcss';`
 - tailwindcss cheat sheet 로 검색해서, 시간날 때 앞단어만 대략 기억해 둠.
   나머진 자동완성이 알아서 도와서 결국 잘 쓰게 해줄 것임
 
@@ -190,12 +190,46 @@ npx => Node Package eXecutor
   Stack: 임시로 쓰고 버릴 곳
   Heap: 프로그램이 종료될 때까지 간직할 곳
 
-- `useRef()`
-
 - useState / useRef 기본 Hook이니 꼭 잘 써야 하고,
   벌써 몇 번째 배열의 메소드 map/filter/sort 심장에 느낌이 와 있어야 함
 
-- re-rendering 느낌이 오면 react 이미 70점 이상!
+- `useState()` => const [변수명, set변수명] = useState(init)
+  변수명값을 직접 바꾸지 않고, 꼭 set을 이용해서 바꾼다.
+  **주의: 변수가 객체일 때, set에 주는 값은 새 객체여야 한당**
+  프로그램 스타일이 기존 방식에서 바뀌는 부분에 (이왕이면)빨리 익숙해져야 함
+
+- `useRef()` => tag랑 일반변수(Re-Rendering -> 화면다시그리기 를 유발하지 않는 변수)
+  re-rendering 느낌이 오면 react 이미 70점 이상!
   오늘까지 한 거에 비동기 개념은 하나도 적용 안 되어 있음
   내일 비동기를 위해 태어난 useEffect Hook을 할 것임!
-  
+
+- 배열의 메소드 => 콜백 쓰는 거, map/ filter/ sort
+                   아직 연습이 덜 된 사람들 꼭 연습해 둡시다^0^
+                   (안다 / 모른다 의 문제가 아님. 그것은 변명! ㅗ^ㅂ^ㅗ)
+                   별 거 없음 => 하루에 한 개라도 익히면 그걸로 충분!
+                   학범?
+
+## 0501
+
+- --host
+
+{
+  "scripts": {
+    "start": "host",
+    "dev": " --hostvite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  }
+}
+
+- MOUNT/ UNMOUNT/ UPDATE ==> `useEffect()`라는 hook 하나로 처리한다.
+  mount: 장착
+    비동기로 하게 되면 mount가 조금 늦게 이루어진다.
+  unmount: 분리
+
+- 기본키/외래키 사용의 목적을 물으면, `검색효율`이 가장 먼저 나와야 함
+
+- `npm install -D @faker-js/faker`
+  D가 의미하는 바::
+    dependency / devDependency 중 개발환경에서만 필요한 녀석이니 dev*에 놓겠다

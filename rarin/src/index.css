@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+/* 버튼 마다 스타일 정의하기 짜장남 */
+button {
+  @apply border-2 border-pink-300 rounded-2xl bg-pink-200
+}
