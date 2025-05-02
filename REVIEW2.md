@@ -233,3 +233,16 @@ npx => Node Package eXecutor
 - `npm install -D @faker-js/faker`
   D가 의미하는 바::
     dependency / devDependency 중 개발환경에서만 필요한 녀석이니 dev*에 놓겠다
+
+- useEffect() => Side Effect => 비동기 사용하라고 만들어 준거
+              => 두 번째 매개변수 => 디펜던씨 => 대괄호 누구야?
+              => 세 가지 경우의 수
+              =>: 매개변수 없으면 => Re-Rendering될 때마다 실행
+              =>: [], 딱 한 번만 처음 Rendering될 때
+              =>: [aaa, bbb] aaa, bbb가 바뀔 때마다 실행
+
+- useState, useRef, useEffect 요거 세 개만 알아도 리액트로 필요한 걸 만들 수 있음..
+  앞으로 나오는 것들은 여기서 파생되었다고 봐도 무방
+
+- JSON-Server랑 Faker-js
+  가짜 데이터 RESTful 서버 만들어서 사용할 때 유용

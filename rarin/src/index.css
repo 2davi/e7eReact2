@@ -3,3 +3,14 @@
 button {
   @apply border-2 border-pink-300 rounded-2xl bg-pink-200
 }
+
+input[type=text],input[type=number] {
+  @apply border-2 border-pink-700 rounded-xl
+}
+
+span {
+  cursor:pointer;
+}
+span:active {
+  color:#ccc;
+}
