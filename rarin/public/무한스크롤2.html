@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>무한스크롤2</title>
+  <style>
+    #disp{width:400px;height:500px;border:3px solid pink;margin:10px auto;overflow:auto;}
+  </style>
+</head>
+<body>
+<h1>윈도우 전체 스크롤 아니고, 특정 div에만 스크롤!(요걸 많이 씀)</h1>
+<h3>요건 미리 숙제.., 요걸 React로 만들어 오기</h3>
+<h3>disp를 React 컴포넌트로 만들어보면 또다른 느낌이 들 것임</h3>
+<div id="disp"> </div>
+<script>
+  const disp = document.querySelector("#disp");
+  //스크롤바 생길 만큼 데이터 넣기
+  for(let i=0; i<15; i++) {
+    let h1tag = document.createElement("h1");
+    h1tag.innerHTML = "div 무한 스크롤"+ (i+1);
+    disp.appendChild(h1tag);
+  }
+
+  disp.scrollTo(0,0); //스크롤바 최상으로 올리기
+
+
+  disp.onscroll = function () {
+    // console.log("체킁: scrollTOP",    document.documentElement.scrollTop);
+    // console.log("체킁: clientHeight", document.documentElement.clientHeight);
+    // console.log("체킁: scrollHeight", document.documentElement.scrollHeight);
+    // console.log("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+
+    let scrollTop = document.documentElement.scrollTop;
+    let clientHeight = document.documentElement.clientHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    let tunning = 50;
+    if((scrollTop + clientHeight) >= (scrollHeight - tunning)) {
+      for(let i=0; i<10; i++) {
+        let h1Tag = document.createElement("h1");
+        h1Tag.innerHTML = `태수의 무한 스크롤${i}`;
+        disp.appendChild(h1Tag);
+      }
+    }
+  }
+</script>
+</body>
+</html>
