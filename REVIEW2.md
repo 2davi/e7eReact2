@@ -32,7 +32,7 @@ node ???.js 식으로 사용할 수 있음
      제대로 안 먹는 경우가 꽤나 많고, 정책 변경이 안 됩니다. CMD를 쓰세용!
   nvm ls available
   nvm ls
-  nvm install (버전)* -> package.json에 작성된 dependencies(modules)를 설치함.
+  nvm install (버전)*-> package.json에 작성된 dependencies(modules)를 설치함.
   nvm uninstall (버전)
   nvm use (버전)*
 - 크게 node 서버를 만들려고 하는 것인가, npm이 목적인가 식으로 물어봄
@@ -267,7 +267,7 @@ npx => Node Package eXecutor
 특히 1명이 힘들면 회의소집 -> 다 같이 도와주는 걸로
 스터디그룹 형성! => 좋은 매니저!
 
-- https://ko.react.dev/ 사이트는 자주 가야함
+- `https://ko.react.dev/` 사이트는 자주 가야함
 예제도 있고, 설명도 완전 훌륭, 항상 최신정보가 담겨있음 (영어인 경우)
 - useReducer는 useState가 너무 단순한 경우에만 최적화 되어 있어서
   조금 더 복잡한 경우에 쓰라고 만들어짐!
