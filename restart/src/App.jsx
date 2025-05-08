@@ -1,4 +1,6 @@
-import Hjung from "./Hjung";
+//import Hjung from "./Hjung";
+//import Yesol from "./Yesol";
+import Kduck from "./Kduck";
 
 function App() {
 
@@ -7,10 +9,7 @@ function App() {
   return (
     <>
       <h1>이제 시작이얌</h1>
-      <Hjung name="현정">
-        <h1>요러건 안 맹글었음, 여닫는 태그로 이루어진 거</h1>
-        <h3>요것도 자식(children) 중 하나</h3>
-      </Hjung>
+      <Kduck/>
     </>
   )
 }
