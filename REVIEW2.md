@@ -279,3 +279,95 @@ npx => Node Package eXecutor
                      한번에 많이 하면 도통 기억 안남)
 - 리눅스는 Docker가 개발된 환경, 빅데이터 처리에 Good
 - 자바는 일괄처리(배치)에 뛰어남.
+
+- useReducer => useState를 쓰기에는 상황이..(경우의수가 쫌 많을 때) 복잡해진다면^0^
+
+function reducer(state(상태변수), action(dispatcher의 매개변수)) {
+  switch(action.type){
+    case "":{return 상태변수와 같은 형태의 데이터;}...
+  }
+}
+const [상태변수1, dispatch1] = useReducer(reducer1, 초기값[, 초기함수]);
+const [상태변수2, dispatch2] = useReducer(reducer2, 초기값[, 초기함수]);
+dispatch({type:"스위치문", data:"필요한값"});
+
+## 0509
+
+리눅스: 우분투(Docker가 개발된 환경) => AWS 우분투(public IP를 갖고 있어서 바로 인터넷 서비스 가능)
+pwd(print-working-directory)/ ls/ ls -al/ man(manual 알고싶은명령어) ls
+
+- 오늘은 React Context API를 배울건데, 왜?
+    규모가 클 때 Props-Drilling은 이것저것 불편.
+    바로 가져다 쓸 수 있게 만들어 준 것이 Context API.
+    이것이 중앙관리 => 중대형 규모(? -> 추후 확장성을 고려한다면..)가 넘어가면 redux를 씀
+    또 낯설거얌! (설정은 설정일뿐!)
+- 오늘 todo list에 대부분의 필요한 기본적인 개념이 담겨 있는데,
+  (결국 한 번 더 반복 연습하란 이야기)
+  하나 중요한 건 여기에다 비동기 아작스 데이터 초기화 기능..!(백엔드 서버와의 연동)
+  요건 다음 주에 하게쏘. 주말에 괘니 잠이 안오고, 리액트가 재밌을 것만 같은
+  그런 이상함에 빠져서 공부!
+- WSL: Window Sub Linux; 리눅스용 윈도우 하위 시스템.
+  윈도우 안에서 리눅스 쓰게 도와주는 (우분투에 가까운 에뮬레이터)
+
+## 0512
+
+Context API => 기억이 안 나면 아주 미워할 꺼얌
+               상태변수 중앙관리 -> Props Drilling의 문제 보완
+                                    (컴포넌트 복잡해지면 힘들어진당)
+               createContext / 컨텍스명.Provider (보통 분리시켜 만든다.)
+               children
+Custom Hook => 제약사항: use로 시작하는 함수
+               원래 제공되는 훅을 내부에 가짐
+               내부에 훅을 가지기 때문에 기존 hook의 제약사항을
+               똑같이 가짐
+        진짜 중요한 건: 요걸 꼭 한 두번은 연습해야 함
+                        ->한 두번 하면 절대 안 잊어버림!
+               function 키워드와 return(JSX) 사이의 소스를
+               정리할 때(Refactoring) 만든다.
+              1) 사이의 소스 전부를 따로 뺸다(useXXX 함수명 안으로)
+              2) 커스텀 훅은 단지 return(JSX)에서 필요한 것만 return해주면 끝
+              3) function 키워드와 return(JSX) 사이에 커스텀 훅을 넣고
+                 필요한 것만 구조분해해서 사용한다.
+WSL => Window Sub Linux (우분투)
+      시대적 요구사항 -> 단순 일반인들은 더이상 PC를 많이 쓰지 않음(게임)
+                      -> PC 주 사용자들이 IT종사자(개발자) -> 터미널명령어(shell)
+                         문제생기면 보통 `wsl --update` 명령으로 대부분 해결
+
+모르는 게 무엇인지를 최대한 좁게 특정할 수 있다면, 성장 가능성이 더 높아짐
+모르는 게 무엇인지 (전부 다!!, 하나도 모름.. 이런 표현은 아주 위험!)
+          주변의 사람들이 다 도망감! 천천히 가도 되니까
+          자신이 무얼 모르는지 생각하고 추적해야 함!
+
+리눅스/유닉스 명령어는 손에 익히는 데는 오래 걸리는데,
+    오래 쓴 것처럼 속이는 방법이 있음.
+    - 환경변수 => PATH
+    - 입출력 redirect(방향 전환)
+    - 파이프 라인(앞 명령의 결과를 뒷 명령이 받음)
+    - 백그라운드 프로세스(뒤에서 안 보이게 동작)
+    - 히스토리 사용(!를 이용)
+    - source 파일|| 파일 안의 명령어들을 일괄 실행 (.을 쓰면 대박)
+
+    - `변수명="변수값"`
+    - echo $변수명 <== 읽기
+    - echo $PATH <==환경변수 읽기
+    - echo $USER <==로그온 사용자
+    - echo $SHELL <==
+    - evn <==설정된 모든 환경변수 출력.
+    - which echo <== 디렉토리 검색 (echo의 디렉토리 위치는?)
+    - cd /usr/bin <==echo 명령이 위치한 디렉토리로 이동
+    - cd <==아무데서나 쳐도 home디렉토리로 돌아옴.
+      cd /...<== 슬러시로 시작하면 절대경로,(ROOT)를 의미
+    (출력 redirect; >)
+    - echo "educated tiger" > hb.txt <== pwd 내의 파일로 출력하라 (덮어쓰기)
+    - cat 파일명 <==읽어오기
+    - echo "educated tiger" >> hb.txt
+    - more /etc/passwd <== cat과 비슷, 터미널창을 넘는 분량은 페이지 구분을 해줌.
+    (파이프라인; |)
+    - cat /etc/passwd | more <==앞명령의 출력결과를 뒷명령이 인자로 받음
+    - xeyes
+      서버는 터미널이 하나, 눈깔을 실행하면 프로그램 종료하기 전까진 프롬프트 막힘
+    - xeyes & <== (&)가 붙으면 background-process로 실행한다.
+    - history <==그동안 쳤던 명령이 쭈욱 나온다.
+    - history > sy-cmd.txt
+    - !! <== 직전 명령을 반복
+    - !INDEX <== 불러온 리스트의 해당 인덱스 줄 명령을 호출해냄.
