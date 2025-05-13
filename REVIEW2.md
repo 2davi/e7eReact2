@@ -340,8 +340,9 @@ WSL => Window Sub Linux (우분투)
 
 리눅스/유닉스 명령어는 손에 익히는 데는 오래 걸리는데,
     오래 쓴 것처럼 속이는 방법이 있음.
-    - 환경변수 => PATH
-    - 입출력 redirect(방향 전환)
+    - 환경변수 => PATH, $, 대문자로 지정, export 수출해야만 모두 씀
+    - 입출력 redirect(방향 전환) >, >>
+       <, 입력 redirect는 생각보다 사용할 경우가 적다.
     - 파이프 라인(앞 명령의 결과를 뒷 명령이 받음)
     - 백그라운드 프로세스(뒤에서 안 보이게 동작)
     - 히스토리 사용(!를 이용)
@@ -371,3 +372,72 @@ WSL => Window Sub Linux (우분투)
     - history > sy-cmd.txt
     - !! <== 직전 명령을 반복
     - !INDEX <== 불러온 리스트의 해당 인덱스 줄 명령을 호출해냄.
+
+## 0513
+
+- Context API 비동기 데이터 초기화
+  insert/ delete, 더미 데이터를 쓸 떄랑 코드가 달라짐
+  useEffect, 입력/ 수정/ 삭제 비동기 호출 뒤에, 다시 비동기 GET을 호출하는
+  것이 기본적으로 좋음! 왱?
+      =>서버에는 한 사람만 접속하는 것이 아님.
+        확장자 .js 파일은 라이브서버로 실행 못 시킴(확장자 .html만 가능)
+        js 파일은 node xxx.js 형식으로 터미널에서 바로 실행시킬 수 있음.
+
+- 커스텀 훅 만드는 법:
+  function 윤석() {
+    /*
+      function 키워드와 return사이인 이곳의 소스가 많아지면
+      가독성이 떨어지고, 심지어 지저분해 보임.
+      별도의 파일로 만들어서 이곳의 소스를 가져간당.
+      export하고 import로 불러온담.
+      **JSX 안에서 사용될 것만 return시켜주면 예쁘게 동작하게 됨!
+    */
+    return (`<h1>JSX</h1>`)
+  }
+
+- ngrok 실행방법 :: e7e폴더에서 cmd-> 
+  `ngrok config add-authtoken 2x1Qo1oCb9sbubivYrPzQWoLYPx_7fyrjaCGAnSNmcxYSRJz5`
+  => 내 식별자 느낌
+  `ngrok http http://localhost:5173`
+  -->매번바뀌는도메인
+  `ngrok http --url=prime-mosquito-adequate.ngrok-free.app 5173`
+  -->하나공짜로주는고정도메인
+  => FREE로 주어진 포트 하나를 ngrok 서버에 연결
+  vite.config.js 파일 수정...
+  ` export default defineConfig({
+      plugins: [react(), tailwindcss()],
+      server: {
+        allowedHosts: ["f756-1-245-228-194.ngrok-free.app"]
+      }
+    });
+  `
+  =>server: {...} 추가(ngrok 도메인 등록시키기.)
+
+  -> 해당 프로젝트를 공개 서버에서 테스트 가능
+
+- ngrok은 바이러스 형태(트로이 목마 모습 == `네트워크 터널링`)
+  포트 번호 1개와 이름 긴 고정 도메인 명 1개로 무료 사용 가능
+  https도 쓸 수 있기 때문에,
+  개발자에게는 소중함!
+- ngrok -> 리액트5173 -> json-server:8272
+
+- 
+      - cp insa insa2 <==복사본 생성
+      - mv inda2 ./figma/ <==파일의 디렉토리 변경
+      - mkdir ~/taesu <== ~은 내계정 디렉토리. (/home/java)
+      - mv ./insa ./taesumerong <==현재 디렉토리의 insa 파일을 잘라내어 teasumerong 에 덮어씌워라. ===> 이름바꾸기도 가능
+      - rm taesumerong <== 파일 삭제
+      - rm .fR figma/ <== 디렉토리 강제* 삭제
+          rm figma/ --> rm명령으로는 불가능. rmdir이 있는데 잘 안 쓰는 명령
+      - sudo apt install gcc -y
+            <==C컴파일러 gcc 설치 (sudo: 관리자권한)
+            <==apt: Advanced Package Tool 프로그렘 추가/제거 명령어
+            <== -y: 설치과정 중 계속 진행하겠슴까 질문에 yes 미리대답
+      - vi <= vi Editor 실행
+        esc -> 명령어콘솔
+            -> :
+            -> :set number (라인마다 줄넘버 생김)
+            -> !ls (잠깐 터미널로 나감)
+            -> wq! 저장하고 나와라(뭔 오류나도 그냥 나와라)
+        vi에디터는 프로그램 작성에는 좋지 않으나, 유지보수 사용에는 괜찮음.
+        필요한 곳을 빨리 찾아 고치는 데 주로 사용됨. 설정 파일 수정 등.
