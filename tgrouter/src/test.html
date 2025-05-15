@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <a id="link" href="/sangin" onClick="kdMove">상진</a>
+  <script>
+    const aTag = window.link;
+    const chgURL = () => setCurPath(location.pathname);
+    aTag.addEventListener("click", (event) => {event.preventDefault(); kdMove();});
+    
+
+
+    function kdMove() {
+        history.pushState("/sangin");
+      
+        window.addEventListener("merong", chgURL);
+        return window.removeEventListener("merong", chgURL);
+      
+      
+    }
+
+  </script>
+</body>
+</html>
