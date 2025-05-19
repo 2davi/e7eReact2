@@ -31,7 +31,7 @@ function Task({ task }) {
   }
   let taskContent;
   if (isEditing) {
-    taskContent = (
+    taskContent = (             
       <>
         <input
           value={task.text}

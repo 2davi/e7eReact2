@@ -4,6 +4,7 @@ import Yesol from "./pages/Yesol"
 import Yunsuk from "./pages/Yunsuk"
 import HjLayout from "./layout/HjLayout"
 import NotFound from "./pages/NotFound"
+import ANavLink from "./ANavLink"
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
       {/* <BrowserRouter> */}
       <h1>다시 시작이얌</h1>
       <button onClick={hjMove}>이동</button>
+
+      <ANavLink to={"/hj/merong"} style={isActive => isActive ? {"color":"pink", "font-weight":"bold"} : {} }>현덩</ANavLink>
+      isActive ? 
       <Link to={"/hj/merong"}>메롱</Link>
       <Link to={"/hj/yesol"}>비웃음</Link>
       <Link to={"/hj/yunsuk"}>흥치피</Link>
@@ -35,8 +39,8 @@ function App() {
           <Route path={"yesol"} Component={Home} />
           <Route path={"yunsuk"} element={<Yunsuk />} />
           {/* 일치하는 URL이 없을 때, 맨 아래 써야 함 */}
-          <Route path={"*"} Component={NotFound} />
         </Route>
+        <Route path={"*"} Component={NotFound} />
       </Routes>
       {/* </BrowserRouter> */}
     </>

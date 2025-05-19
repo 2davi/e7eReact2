@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", //타겟 자바스크립트 최신 버전
+    "module": "ESNext", // esm module 최신 버전
+    "rootDir": "./src", // .js파일이 있는 디렉토리
+    "outDir": "./dist", // .js 파일이 만들어질 디렉토리
+    "removeComments": true, // 컴파일 시 자동으로 주석 삭제
+    "strict": true, //"use strict"
+  }
+}

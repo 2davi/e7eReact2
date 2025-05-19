@@ -395,7 +395,7 @@ WSL => Window Sub Linux (우분투)
     return (`<h1>JSX</h1>`)
   }
 
-- ngrok 실행방법 :: e7e폴더에서 cmd-> 
+- ngrok 실행방법 :: e7e폴더에서 cmd->
   `ngrok config add-authtoken 2x1Qo1oCb9sbubivYrPzQWoLYPx_7fyrjaCGAnSNmcxYSRJz5`
   => 내 식별자 느낌
   `ngrok http http://localhost:5173`
@@ -421,7 +421,7 @@ WSL => Window Sub Linux (우분투)
   개발자에게는 소중함!
 - ngrok -> 리액트5173 -> json-server:8272
 
-- 
+-
       - cp insa insa2 <==복사본 생성
       - mv inda2 ./figma/ <==파일의 디렉토리 변경
       - mkdir ~/taesu <== ~은 내계정 디렉토리. (/home/java)
@@ -463,4 +463,87 @@ WSL => Window Sub Linux (우분투)
 - useState, useEffect, useRef, useReducer, useContext
 - router까지가 딱 필수!, 이 이상은 선택적 사용.
   `npm i react-router`**    `https://reactrouter.com/`
-  
+
+## 0516
+
+- 잠깐 땜빵시간
+- typescript => 자바스크립트 슈퍼셋
+             => 모든 버전의 자바스크립트 문법을 포함
+             => 앞으로 나올 것까지
+             마이크로소프트가 만듦 -> 실제 실행되는 언어가 아님
+             transpiler 또는 컴파일러 라고 부름
+             typescript (.ts) -> transpile 또는 컴파일 --> 자바스크립트
+             자바스크립트 (버전 타겟팅 가능)
+             왜 만들었냐? 큰 규모의 프로젝트에 자바스크립트를 적용하기가 어려움
+             (개발, 유지보수 모두)
+             디버깅이 어려워 => 데이터 타입이 없어서
+             그래서 자바같은 언어처럼 변수에 타입을  지정해서
+             써야 함! =>
+             인기 대박 상승 중(회사는 장기적 이득이 크기 때문에
+             개발자 손목 통증쯤은 모두 무시시)
+             회사에서 react(svelt,vue,angular)처럼 프론트 프레임워크를 쓰면
+             거의 대부분 typescript를 씀
+             우리는 그럼 왜 안쓰냥? => 코드 양이 많아짐(눈 어지러워)
+             보통 배울 때는 그냥 자바스크립트를 쓰고,
+             회사가면 typescript를 쓰게 됨
+
+- typescript 연습
+  `npx init -y`
+  `npx tsc --init`
+
+- 어제 정리
+    react router 추가 설치 필요
+    provider 패턴 => 감싸야 그 안에서 사용할 수 있음
+    Link(to)=> a태그와 다름 => preventDefault()로 a태그의 location.href를 막아서
+                            서버에 요청을 보내지 않는다는 것이 핵심!
+    Routes/ Route(path, element|Component)
+            path 하고 Link to(정확히는 현재 주소표시줄 값)
+            일치하면 element나 Component에 쓴 컴포넌트를 가져옴
+            (화면에 그리게 됨)
+    Route 안에 Route 쓰는 것을 "중첩 라우팅" 이라 한다.
+    부모 컴포넌트에 Outlet를 넣으면, 그 자리에 자식 컴포넌트가 나타난다.
+    그래서 보통 부모를 레이아웃이라고 부른당.
+- 라우터에서 제공해주는 훅
+    useParams -> /kkk/:ppp => @PathVariable
+    useNavigate -> navigate(url, option-> `state`) -> url 강제 변경
+    useLocation -> state에 할당한 값을 꺼내서 쓸 수 있음
+- 여기까지가 리액트 필수 기본
+  주말에 혹 시간이 나면, 전체적으로 한번 쓱 훑으면
+  별거 없구낭 하는 생각이 들 거얌!~~
+  막상 해보면 생각보다 그리 기억할 게 많지 않음
+  오히려 자바스크립트가 문제? 콜백! /비동기
+  본인이 어디를 모르는지? => 이걸 알아내면 정말 훌륭한 사람!
+  저절로 해결되는 건 없음 본인의 시간투자와 집중력이 필요!
+
+- react-query(tanstack)/redux => 다음주에 할 건데 꼭 쓰지는 않아도 됨!
+
+## 0519
+
+- 지난 주 : Router 2가지 방법 : 지금 정하지 말고, 회사가서 쓰면 
+  `<BrowseRouter> vs createBrowserRouter`
+  이런 설정은 그리 중요하지 않음. 억지로 외울려고 하지 말것
+  => useParams, useSearchParams, useNavigate, useLocation
+     이런 관련 훅을 잘 쓰는게 개발자에게 더중요
+     왜? 설정은 한번 해 놓으면 값만 바뀌지 설정자체를 다시하지는 않는다.
+     곧 틀로 복사/ 붙여넣기 식으로 사용하니까 의미만 알면 된다
+     곰곰히 생각해보면 설정 테크닉은 처음만 잠깐 중요
+     Link/NavLink Route
+
+- 최프에 react 많이 안 쓰더라
+  => 컴포넌트 만드는데(추상적 설계개념)시간이 걸림
+    잘 안하려함 검색만 잘하면 이미 만들어진 컴포넌트가
+    엄청 많음(특히 MUI 컴포넌트는 css도 거의 쓸 필요가 없을 정도)
+    역시 초기 투자 시간 필요 => 컴포넌트 사용법(내가 만든게 아니라서)
+  => 결국 초기 투자를 해야 뒤에 빠르게 적용할 수 있음
+     조금(단순 CRUD)이라도 꼭 외면하지 말고, 적용해 보길
+
+- 시대 흐름이 조금 바뀜
+  직접 React를 쓰는 것 보다는 next.js(vercel)를 이용하길 추천
+  (리액트를 만든 메타(구 페이스북)에서 이렇게 권장)
+  SPA의 단점을 극복하고, React의 장점도 최대한 살리는 방향으로
+  코드를 쥐어짜고, 무엇보다 개발자에게 편리한 기본설정을
+  제공해서 최대한 응용코드에만 집중할 수 있도록 방향을 잡고 있음
+
+- SPA 단점: 초기 구동속도 느리다(첫페이지 로딩시간 길 수 있다)
+            검색엔진 최적화에 어려움 (SEO)
+- SSG (Static Side Generation): 
