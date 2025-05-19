@@ -546,4 +546,64 @@ WSL => Window Sub Linux (우분투)
 
 - SPA 단점: 초기 구동속도 느리다(첫페이지 로딩시간 길 수 있다)
             검색엔진 최적화에 어려움 (SEO)
-- SSG (Static Side Generation): 
+- SSG (Static Side Generation): SSR과 머가 다른강
+      CSR / SSR / SSG 모두 지원
+- Fullstack은 JS 출현 후 등장한 개념. (브라우저(JS), 서버(Node.js), DB(MongoDB))
+  MERN, MEVN, MEAN (MongoDB + Express + React/Vue/Angular + Node.js).
+
+- LINUX :FTP
+  (in Terminal) ftp localhost
+  help mget ==> get multiple files
+  get/ put
+  mget/ mput *.* ==> 모든 파일 옮겨가기
+  m(multiple): 여러 파일에 어쩌구. (ex. mget,...)
+  quit
+  put 안되는 사람은 /home/ftproot 권한 확인. w(write)권한 없으면 안 돼!
+  remote와 locale ::
+      locale은 터미널이 위치한 장소
+      remote는 ftproot 폴더
+  !ls => ftp 내에서 locale의 리스트를 뽑아옴.
+  ! 몽둥이 붙이면 locale
+
+  우리 연습한 건 네트워크로는 의미가 없음. localhost는 내 컴퓨터라서
+  ftp 안 쓰고도 파일 복사/붙여넣기 하면 되니깡
+
+  ip가 10.x.x 식으로 나오는 사람들은 linux 재시작 필요
+  192.168.x.x 식으로 나와야 bridge가 먹은 것임
+  ftp 이해했다고 믿겠음!!!
+  window cmd의 ftp명령은 좀 좋지 않음을 기억!
+
+- Docker:
+  Docker와 VM의 차이를 이해하는 것이 중요!! 시작 시 최소한의 사이즈를 갖는 OS이미지를 사용하는 것(전에는 200~300M 였는데 요즘 더 작아짐)
+  커지면 결국 VM과 같은 모습이 되어 버림
+  억지 비교하면 VM은 집 리모델링, docker는 집안에 텐트 설치
+- 개발자가 해야하는 일
+  1) 이미지 가져다가 컨테이너를 구동
+  2) 컨테이너 속으로 들어가기
+  (plus) OS <-> 컨테이너 |파일 복사
+  그외 상황은 거의 발생하지 않아서, 필요시 검색하면 됨
+  명령어는 docker cheatsheet 검색 추천
+- docker ubuntu install 검색 후 공식 dockerdocs에서 설치법 따라가기
+  `Install using the apt repository`
+  사전작업 후(1) 본격 설치(2)
+- git -> github, docker-> docker-hub 계정 없는 사람 계정 만들깅!~
+  여기까지가 설치=> 그리 중요하지 않음 => 나중엔 더 간단한 설치가 제공될 것임
+
+- docker run 이미지명:태그명
+    docker run --name ubuntu:latest (태그명 생략 시 default 설정으로 latest)
+    --name은 옵션, 옵션으로 arin이란 이름을 지어준다. --name arin
+  - 컨테이너 실행(보통 이건 잘 쓰지 않음-> OS사용)
+        docker run -it --name arin ubuntu:latest
+          -it 옵션은 interactive
+          마지막은 시작 shell
+  - 컨테이너 안으로 들어가기
+        docker exec -it arin /bin/bash
+  - docker stop/start/restart 컨테이너명||컨테이너id
+
+  - 아래 형태를 하나 기억해두면 좋음(서버 실행)
+  docker run -d -p 8521:1521 --name ysOra oracleinanutshell/oracle-xe-11g
+        -d 실행하려는 것이 daemon 서버일 때(백그라운드 프로세스)
+        -p 포트설정 `hostPORT:containerPORT` 호스트to컨테이너 연결 시 포트포워딩
+  - Oracle의 sys, system
+        sys: 그냥 권력자
+        system: 유지보수전담
