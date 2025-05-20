@@ -519,7 +519,7 @@ WSL => Window Sub Linux (우분투)
 
 ## 0519
 
-- 지난 주 : Router 2가지 방법 : 지금 정하지 말고, 회사가서 쓰면 
+- 지난 주 : Router 2가지 방법 : 지금 정하지 말고, 회사가서 쓰면
   `<BrowseRouter> vs createBrowserRouter`
   이런 설정은 그리 중요하지 않음. 억지로 외울려고 하지 말것
   => useParams, useSearchParams, useNavigate, useLocation
@@ -607,3 +607,54 @@ WSL => Window Sub Linux (우분투)
   - Oracle의 sys, system
         sys: 그냥 권력자
         system: 유지보수전담
+
+- FTP ==> 파일서버 보내고/ 받기 위해 만들어진 프로토콜
+        get/ put/ mget/ mput
+        /ascii (요건 가끔 파일이 깨짐) --> bin
+        /prompt /quit /bye /help(쓸 수 있는 명령어 확인)
+        /! -> LOCAL 디렉토리에서 터미널 사용
+- Port Fowarding : 가상 LAN카드를 이용한 64K의 Port를 가짐.
+                   바깥 host os의 포트에 컨테이너 내부 포트를 맵핑.
+                   `hostPORT:containerPORT`
+
+## 0520
+
+- AWS 가입해두깅 (내일 한 번 써보는 걸롱.../ 별거 없음 그냥 ubuntu)
+      장점: public ip를 가지고 있음 => 인터넷에 즉각 서비스 가능
+      요금이 맘에 걸림!! -> 실제는 개인 사업할 것 아니면 회사꺼나 쓰삼 ㅇㅇ
+
+- 도커 vm machine(원하지 않는 것도 포함) vs vm container(작다.)
+      개발자를 위한 도커 => 다른 사람이 다 설치해놓은 걸
+                            그대로 가져다 쓸 수 있다.
+      운영자/서버관리자 => 쿠버네이트 포함해서 엄청 공부해야 함!
+
+- (프로세스 원하는 것만 보기)
+  docker ps -a --format "table {{.ID}} {{.Status}} {{.Names}}"
+  docker run -d -p 9292:8080 --name sutom tomcat:10.1-jdk21
+  -- (1)포트포워딩(도커이미지의 포트번호 설정은 게시자를 따라감(변경 불가))
+  -- (2)태그: 기본값은 latest, 특정 버전 사용하려면 직접 지정 필요
+  > docker run -d -p 9292:8080
+  > -v /home/java/sumin/hjung/arinapp :/usr/local/tomcat/webapps
+  > --name sutom tomcat:10.1-jdk21
+  -- (1)VOLUME -v옵션 하위의 경로 디렉토리를 그 다음 하위 디렉토리와 연동시킴.
+  -- (2)-p 옵션과 비슷. `HOST포트|디렉 : CONTainer포트|디렉`
+  -- 카피할 필요도 없고, 컨테이너 지워도 호스트디렉토리는 남으니깡
+     백업도 되공!...굳!굳!
+  tar xvfz ~~~~.tar.gz
+  -- 압축풀기
+
+- docker cp 명령으로 컨테이너 밖 파일 <-> 컨테이너 안 파일
+            이것도 사실 좀 불편함f^~^
+            이걸 해결해주는 게 volume
+            상진이가 공부하는 줄 알았는데, 아니었음~~T^T
+
+- JSP -> Servlet (Server + applet)
+         서버에서 돌아가는 자바 프로그램(망한 applet은 클라이언트에서 돌아가는...)
+         JSP는 .java로 변환되어 컴파일된다. 실행 결과는 html text파일과 마찬가지
+
+- 요기까지가 기본이고, 혹 더하고 싶다(시간이 많다) 하는 사람들은 docker의 network 옵션을 공부해보길 추천.
+  network 옵션을 잘 쓰면 pc 안에 가상의 internet 환경을 만들 수 있음(엄청 귀찮은 일!)
+  =>회사가 가상화 부서가 있으면 쓰게 될 것임!
+
+- 10분 줄 테니깡, 컨테이너 싹 지우고, 다시 한번만 연습해봅니다.
+  이미지 지우기:: docker rmi REPOSITORY||이미지id:TAG(버전)
